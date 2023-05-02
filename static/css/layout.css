@@ -1,0 +1,91 @@
+body{
+    height: 100vh;
+    margin: 0;
+}
+.cell {
+    margin: 0;
+    width: 40px;
+    box-sizing: border-box;
+    border: 2px solid;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 32px;
+    width: 702px;
+    height: 552px;
+    position: relative;
+    background-color: #a7c53f;
+    background-image: radial-gradient(circle at 0% 0%, transparent 50%, rgba(0,0,0,0.1) 50%), radial-gradient(circle at center, rgba(0,0,0,0.1) 50%, transparent 50%), radial-gradient(circle at 100% 100%, transparent 50%, rgba(0,0,0,0.1) 50%), radial-gradient(circle at 0% 100%, transparent 50%, rgba(0,0,0,0.1) 50%), radial-gradient(circle at 100% 0%, transparent 50%, rgba(0,0,0,0.1) 50%);
+    background-size: 8em 8em;
+}
+#maze_container{
+    width: max-content;
+    margin: auto;
+}
+#menu{
+    display: inline-flex;
+    justify-content: space-evenly;
+    margin-top: 2.5rem;
+    height: 50px;
+    width: 95vw;
+}
+input , select {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 45px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  appearance: none;
+}
+label {
+  color: whitesmoke;
+  font-size: 25px;
+  margin:auto;
+}
+input:hover,
+select:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+input:active,
+select:active {
+  background-color: black;
+}
+input:focus,
+select:focus {
+  outline: none;
+}
+#gradient{
+    z-index: -1;
+    position: fixed; 
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center,#76ee52, #f1ee2f, #307722, #23d5ab);
+    background-size: 70% 150%;
+    animation: Gradient 10s ease infinite;
+}
+@keyframes Gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }

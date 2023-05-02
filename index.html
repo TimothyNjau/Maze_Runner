@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,26 @@
     <link rel="stylesheet" href="/static/css/layout.css">
     <link rel="stylesheet" href="/static/css/styles.css">
 </head>
+
 <body>
-    
+    <div id="gradient"></div>
+    <div id="menu">
+        <input type="button" id="startMazeBtn" value="START">
+        <div id="timer-section">
+            <label for="timerClock">TIMER</label>
+            <input type="time" name="timerClock" id="timerClock" value="00:00:00">
+        </div>
+        <select name="mazeOptions" id="options">
+            <option value="easy" selected>EASY</option>
+            <option value="medium">MEDIUM</option>
+            <option value="hard">HARD</option>
+        </select>
+    </div>
+    <div id="maze_container">
+        <table id="mazeGrid"></table>
+    </div>
 </body>
 <script src="/static/src/global.js"></script>
-<script src="/static/src/main.js"></script>
+<script src="/static/src/main.js" ></script>
+
 </html>
