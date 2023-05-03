@@ -16,7 +16,11 @@
         <input type="button" id="startMazeBtn" value="START">
         <div id="timer-section">
             <label for="timerClock">TIMER</label>
-            <input type="time" name="timerClock" id="timerClock" value="00:00:00">
+            <input type="time" name="timerClock" id="timerClock" value="00:00:00" disabled>
+        </div>
+        <div id="scoreBoard">
+            <label for="scores">SCORE</label>
+            <input type="number" value="00" id="scores" disabled>
         </div>
         <select name="mazeOptions" id="options">
             <option value="easy" selected>EASY</option>
@@ -30,5 +34,6 @@
 </body>
 <script src="/static/src/global.js"></script>
 <script src="/static/src/main.js" ></script>
+<script src="/static/src/func.js"></script>
 
 </html>

@@ -61,3 +61,14 @@ function createMaze() {
 function randomNum(max) {
     return Math.floor(Math.random() * max);
 }
+let fruitObject = {
+"banana": 'static/images/fruits/banana.png',
+"apple": 'static/images/fruits/apple.png',
+"orange": 'static/images/fruits/orange.png',
+"berry": 'static/images/fruits/strawberry.png',
+"pear": 'static/images/fruits/pear.png',
+"watermelon": 'static/images/fruits/watermelon.png',
+"pineapple": 'static/images/fruits/pineapple.png',
+"mango": 'static/images/fruits/mango.png',
+"lemon": 'static/images/fruits/lemon.png'
+}

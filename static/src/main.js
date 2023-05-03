@@ -10,6 +10,8 @@ function initPosition(diff) {
     cellStart.style.background = "red";
     cellStart.setAttribute("flag", "true");
     startPos = new PersonObject(cellStart.id, initRow, initCol);
+    
+    let arr = Object.keys(fruitObject);
     for (let i = 0; i < diff; i++) {
         var finCol = randomNum(mazeWidth);
         var finRow = randomNum(mazeHeight);
@@ -17,10 +19,26 @@ function initPosition(diff) {
             finCol = randomNum(mazeWidth);
             finRow = randomNum(mazeHeight);
         }
+
+        let randX = randomNum(arr.length);
+        var fruit = arr.splice(randX,1)[0];
+        let source;
+        for (key in fruitObject){
+            if(key === fruit)
+            {
+                source = fruitObject[key];
+            }
+        }
+
         let cellFinal_ID = `${finRow}_${finCol}`;
         let cellFinal = document.getElementById(cellFinal_ID);
-        cellFinal.style.background = "yellow";
         finalPos.push(new PersonObject(cellFinal_ID, finRow, finCol));
+        finalPos[i]["name"] = fruit;
+       
+        cellFinal.style.backgroundImage = `url(${source})`;
+        cellFinal.style.backgroundSize = "contain";
+        cellFinal.style.backgroundRepeat = "no-repeat";
+        cellFinal.setAttribute("name", `${fruit}`);
     }    
 }
 
@@ -138,79 +156,3 @@ let createPath = () => {
 
 }
 
-const startBtn = document.getElementById("startMazeBtn");
-const timerElem = document.getElementById("timerClock");
-let timerInterval;
-let setFlag = false;
-startBtn.addEventListener("click", () => {
-    finalPos = [];
-    startPos = " ";
-    //call the function to create the maze
-    createMaze();
-    initPosition(diff);
-    //call the function to generate paths;
-    generatePaths();
-    createPath();
-    if(setFlag){
-        setFlag = false;
-        timerElem.value = "00:00";
-        clearInterval(timerInterval);
-    }
-    if(!setFlag){
-        setFlag = true;
-        timerInterval = setInterval(updateTimer, 1000); 
-    }
-});
-//create a function to update timer when start button is pressed
-function updateTimer() {
-    timerElem.stepUp(1);    
-}
-if(setFlag){
-    timerInterval = setInterval(updateTimer, 1000); 
-}
-
-document.addEventListener('keydown', (event) => {
-    currCell = document.getElementById(`${startPos.row}_${startPos.col}`);
-    var code = event.code;
-    move(code, startPos);   
-});
-
-//create a function to allow movement of object within the paths
-let move = (name, Object) => {
-    switch (name) {
-        case "ArrowUp":
-            if (currCell.style.borderTopStyle === "none") {
-                Object.row -= 1;
-                Object.col = Object.col;
-                moveElem();
-            }
-            break;
-        case "ArrowDown":
-            if (currCell.style.borderBottomStyle === "none") {
-                Object.row += 1;
-                Object.col = Object.col;
-                moveElem();
-            }
-            break;
-        case "ArrowLeft":
-            if (currCell.style.borderLeftStyle === "none") {
-
-                Object.row = Object.row;
-                Object.col -= 1;
-                moveElem();
-            }
-            break;
-        case "ArrowRight":
-            if (currCell.style.borderRightStyle === "none") {
-                Object.row = Object.row;
-                Object.col += 1;
-                moveElem();
-            }
-            break;
-    }
-    function moveElem() {
-        currCell.style.background = "";
-        currCell = document.getElementById(`${Object.row}_${Object.col}`);
-        currCell.style.background = "red";
-    }
-}
