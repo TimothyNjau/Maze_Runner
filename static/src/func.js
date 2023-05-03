@@ -51,7 +51,6 @@ document.addEventListener('keydown', (event) => {
             scoreBoard.setAttribute("value", `${scoreValue}`);
             audioOne.play();
             finalArr.splice(finalArr.indexOf(elem),1);
-            //break;
         }
     });
     if(finalArr.length === 0){
