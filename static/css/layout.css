@@ -49,6 +49,19 @@ input , select {
   text-decoration: none;
   appearance: none;
 }
+#messageContainer{
+  visibility: hidden;
+ color: white;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  text-align: center;
+  margin: auto;
+  font-size: 30px; 
+}
 label {
   color: whitesmoke;
   font-size: 25px;

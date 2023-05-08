@@ -13,7 +13,6 @@ class PersonObject {
 
 let selectElem = document.getElementById("options");
 selectElem.addEventListener("change", (event) => {
-    console.log(event.target.value);
     var mazeVal = event.target.value;
     switch(mazeVal){
         case "easy":
